@@ -19,14 +19,18 @@ public class FlashcardEntity {
     @Column (name = "Answer", nullable = false)
     private String answer;
 
+    @Column (name = "Category")
+    private String category;
+
     // Konstruktor, Getter und Setter
 
     public FlashcardEntity() {
     }
 
-    public FlashcardEntity(String question, String answer) {
+    public FlashcardEntity(String question, String answer, String category) {
         this.question = question;
         this.answer = answer;
+        this.category = category;
     }
 
     // Getter und Setter für id, question und answer
@@ -53,6 +57,14 @@ public class FlashcardEntity {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public List<FlashcardEntity> getFlashcards(){
