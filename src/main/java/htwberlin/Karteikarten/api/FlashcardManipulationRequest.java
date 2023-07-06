@@ -1,25 +1,15 @@
 package htwberlin.Karteikarten.api;
 
-public class Flashcard {
+public class FlashcardManipulationRequest {
 
-    private long id;
     private String answer;
     private String question;
     private String category;
 
-    public Flashcard(long id, String answer, String question, String category) {
-        this.id = id;
+    public FlashcardManipulationRequest(String answer, String question, String category) {
         this.answer = answer;
         this.question = question;
         this.category = category;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getAnswer() {
@@ -30,7 +20,7 @@ public class Flashcard {
         this.answer = answer;
     }
 
-    public String getQuestion() {
+    public String getQuestion(){
         return question;
     }
 
