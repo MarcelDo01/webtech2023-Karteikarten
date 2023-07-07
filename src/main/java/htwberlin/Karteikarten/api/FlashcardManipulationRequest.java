@@ -6,9 +6,9 @@ public class FlashcardManipulationRequest {
     private String question;
     private String category;
 
-    public FlashcardManipulationRequest(String answer, String question, String category) {
-        this.answer = answer;
+    public FlashcardManipulationRequest(String question, String answer, String category) {
         this.question = question;
+        this.answer = answer;
         this.category = category;
     }
 

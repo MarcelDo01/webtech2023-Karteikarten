@@ -7,10 +7,10 @@ public class Flashcard {
     private String question;
     private String category;
 
-    public Flashcard(long id, String answer, String question, String category) {
+    public Flashcard(long id, String question, String answer, String category) {
         this.id = id;
-        this.answer = answer;
         this.question = question;
+        this.answer = answer;
         this.category = category;
     }
 

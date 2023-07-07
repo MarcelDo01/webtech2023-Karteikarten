@@ -14,12 +14,13 @@ public class FlashcardEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column (name ="Question", nullable = false)
+    @Column(name = "Question", nullable = false)
     private String question;
-    @Column (name = "Answer", nullable = false)
+
+    @Column(name = "Answer", nullable = false)
     private String answer;
 
-    @Column (name = "Category")
+    @Column(name = "Category")
     private String category;
 
     // Konstruktor, Getter und Setter

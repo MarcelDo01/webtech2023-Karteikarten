@@ -13,24 +13,27 @@ import java.util.stream.Collectors;
 public class FlashcardService {
 
     private final FlashcardRepository flashcardRepository;
-    public FlashcardService(FlashcardRepository flashcardRepository){
+    private final FlashcardTransformer flashcardTransformer;
+
+    public FlashcardService(FlashcardRepository flashcardRepository, FlashcardTransformer flashcardTransformer){
         this.flashcardRepository = flashcardRepository;
+        this.flashcardTransformer = flashcardTransformer;
     }
 
     public List<Flashcard> findAll(){
         List<FlashcardEntity> flashcards = flashcardRepository.findAll();
         return flashcards.stream()
-                .map(this::transformEntity)
+                .map(flashcardTransformer::transformEntity)
                 .collect(Collectors.toList());
     }
     public Flashcard findById(Long id) {
         var flashcardEntity = flashcardRepository.findById(id);
-        return flashcardEntity.map(this::transformEntity).orElse(null);
+        return flashcardEntity.map(flashcardTransformer::transformEntity).orElse(null);
     }
     public Flashcard create(FlashcardManipulationRequest request){
         var flashcardEntity = new FlashcardEntity(request.getQuestion(),request.getAnswer(),request.getCategory());
         flashcardEntity = flashcardRepository.save(flashcardEntity);
-        return transformEntity(flashcardEntity);
+        return flashcardTransformer.transformEntity(flashcardEntity);
     }
 
     public Flashcard update(Long id, FlashcardManipulationRequest request) {
@@ -46,7 +49,7 @@ public class FlashcardService {
 
         flashcardEntity = flashcardRepository.save(flashcardEntity);
 
-        return transformEntity(flashcardEntity);
+        return flashcardTransformer.transformEntity(flashcardEntity);
     }
     public boolean deleteById(Long id) {
         if (!flashcardRepository.existsById(id)) {
@@ -58,13 +61,6 @@ public class FlashcardService {
     }
 
 
-    private Flashcard transformEntity(FlashcardEntity flashcardEntity){
-        return new Flashcard(
-                flashcardEntity.getId(),
-                flashcardEntity.getAnswer(),
-                flashcardEntity.getQuestion(),
-                flashcardEntity.getCategory()
-        );
-    }
+
 
 }
