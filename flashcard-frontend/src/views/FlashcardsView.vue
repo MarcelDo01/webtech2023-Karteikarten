@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <h1>Flashcards</h1>
-    <div class="container-fluid scrollable-container">
-      <flashcard-list :flashcards="flashcards"></flashcard-list>
+  <h1>Flashcards</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col scrollable-container">
+        <flashcard-list :flashcards="flashcards" @cardClick="showCard"></flashcard-list>
+      </div>
     </div>
   </div>
 </template>
@@ -11,15 +13,16 @@
 import FlashcardList from "@/components/FlashcardList.vue";
 
 export default {
-  name: 'Flashcards',
+  name: 'FlashcardView',
 
   data() {
     return {
-      flashcards: []
+      flashcards: [],
+
     }
   },
   components: {
-    FlashcardList
+    FlashcardList,
   },
   mounted() {
     const endpoint = "http://localhost:8080/api/v1/flashcards";
@@ -29,13 +32,28 @@ export default {
         this.flashcards = result;
       })
       .catch(error => console.log('error', error));
+  },
+  methods: {
+    showCard(card) {
+      this.selectedCard = card;
+    }
   }
 }
 </script>
 
 <style scoped>
+.container{
+  text-align: left;
+}
+.row {
+  margin-bottom: 100px;
+}
+.container-fluid {
+  margin-top: 20px;
+}
+
 .scrollable-container {
-  height: 1000px; /* Höhe der Scrollbar anpassen */
-  overflow-y: scroll; /* Scrollbar anzeigen */
+  height: 700px;
+  overflow-y: auto;
 }
 </style>
