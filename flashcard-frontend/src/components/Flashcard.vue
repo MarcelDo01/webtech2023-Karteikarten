@@ -1,8 +1,8 @@
 <template>
-  <div className="card card-outline-dark h-100">
-    <div className="card-body">
-      <h5 className="card-title">Frage: {{ flashcard.question }}</h5>
-
+  <div class="card card-outline-dark h-100" @click="toggleAnswer">
+    <div class="card-body">
+      <h5 class="card-title">Frage: {{ flashcard.question }}</h5>
+      <p v-if="showAnswer" class="card-text">Antwort: {{ flashcard.answer }}</p>
     </div>
   </div>
 </template>
@@ -15,22 +15,32 @@ export default {
       type: Object,
       required: true
     }
+  },
+  data() {
+    return {
+      showAnswer: false
+    };
+  },
+  methods: {
+    toggleAnswer() {
+      this.showAnswer = !this.showAnswer;
+    }
   }
 }
-
 </script>
 
 <style scoped>
 .card {
   border: 2px solid black;
   padding: 20px;
+  cursor: pointer;
 }
 
 .card-title {
   margin-bottom: 10px;
 }
 
-.card-title, .card-text {
+.card-text {
   font-size: 16px;
 }
 </style>
