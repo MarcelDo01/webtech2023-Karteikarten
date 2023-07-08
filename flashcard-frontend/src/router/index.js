@@ -1,7 +1,8 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
-import Flashcards from "../views/Flashcards.vue";
+
+import FlashcardsView from "@/views/FlashcardsView.vue";
 
 const routes = [
   {
@@ -17,7 +18,7 @@ const routes = [
   {
     path: '/flashcards',
     name: 'Flashcards',
-    component: Flashcards
+    component: FlashcardsView
   }
 
 ]

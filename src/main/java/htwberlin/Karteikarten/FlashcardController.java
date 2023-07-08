@@ -21,11 +21,11 @@ public class FlashcardController {
     }
 
     @GetMapping(path = "/api/v1/flashcards")
-    public ResponseEntity<List<Flashcard>>  fetchFlashcards(){
+    public ResponseEntity<List<Flashcard>> fetchFlashcards(){
         return ResponseEntity.ok(flashcardService.findAll());
     }
     @GetMapping(path = "/api/v1/flashcards/{id}")
-    public ResponseEntity<Flashcard> fetchPersonById(@PathVariable Long id) {
+    public ResponseEntity<Flashcard> fetchFlashcardById(@PathVariable Long id) {
         var flashcard = flashcardService.findById(id);
         return flashcard != null ? ResponseEntity.ok(flashcard) : ResponseEntity.notFound().build();
     }
@@ -38,7 +38,7 @@ public class FlashcardController {
 
     }
     @PutMapping(path = "/api/v1/flashcards/{id}")
-    public ResponseEntity<Flashcard> updatePerson(@PathVariable Long id, @RequestBody FlashcardManipulationRequest request) {
+    public ResponseEntity<Flashcard> updateFlashcard(@PathVariable Long id, @RequestBody FlashcardManipulationRequest request) {
         var flashcard = flashcardService.update(id, request);
         return flashcard != null? ResponseEntity.ok(flashcard) : ResponseEntity.notFound().build();
     }

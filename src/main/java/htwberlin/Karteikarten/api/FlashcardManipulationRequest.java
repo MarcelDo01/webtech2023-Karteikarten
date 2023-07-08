@@ -12,6 +12,8 @@ public class FlashcardManipulationRequest {
         this.category = category;
     }
 
+    public FlashcardManipulationRequest(){}
+
     public String getAnswer() {
         return answer;
     }
