@@ -19,13 +19,6 @@
           <div class="invalid-feedback">
           </div>
         </div>
-        <div class="mb-3">
-          <label for="category" class="form-label">Category</label>
-          <span class="input-group-text" style="margin-right: 10px;">:</span>
-          <input type="text" class="form-control larger-input" id="answer" v-model="category" maxlength="100" required>
-          <div class="invalid-feedback">
-          </div>
-        </div>
         <div v-if="this.serverValidationMessages">
           <ul>
             <li v-for="(message, index) in serverValidationMessages" :key="index" style="color: red">
@@ -49,7 +42,6 @@ export default {
     return {
       question: '',
       answer: '',
-      category: 'General',
       serverValidationMessages: []
     }
   },
@@ -64,8 +56,7 @@ export default {
 
         const flashcard = JSON.stringify({
           question: this.question,
-          answer: this.answer,
-          category: this.category
+          answer: this.answer
         })
 
         const requestOptions = {

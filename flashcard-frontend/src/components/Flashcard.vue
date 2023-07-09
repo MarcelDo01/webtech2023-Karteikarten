@@ -71,7 +71,7 @@ export default {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
-        },
+        }
       };
 
       fetch(endpoint, requestOptions)
@@ -79,15 +79,13 @@ export default {
           if (response.ok) {
             console.log('Karteikarte erfolgreich gelöscht');
             this.$emit('cardDeleted', flashcardId);
-            // Entferne die gelöschte Karteikarte aus dem Array
-            this.flashcards = this.flashcards.filter(card => card.id !== flashcardId);
           } else {
             console.error('Fehler beim Löschen der Karteikarte');
           }
         })
         .catch(error => {
           console.error('Fehler beim Löschen der Karteikarte', error);
-        });
+        }); location.reload();
     },
 
     openModal() {
