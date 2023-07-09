@@ -9,7 +9,7 @@
         <div class="navbar-nav">
 
           <div class="About">
-            <router-link class="nav-link" to="/about" style="margin-right: 20px ;text-decoration: none">About</router-link>
+            <router-link class="nav-link" to="/about" style="margin-right: 20px ;text-decoration: none">Impressium</router-link>
           </div>
           <div class="Flashcard">
             <router-link class="nav-link" to="/flashcards" style="margin-right: 20px ;text-decoration: none">Flashcards</router-link>

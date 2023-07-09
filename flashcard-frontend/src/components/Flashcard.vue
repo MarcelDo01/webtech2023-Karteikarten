@@ -4,11 +4,13 @@
       <h5 class="card-title">Frage: {{ flashcard.question }}</h5>
       <p v-if="showAnswer" class="card-text">Antwort: {{ flashcard.answer }}</p>
       <div class="buttons">
-        <button class="btn btn-danger" @click="deleteFlashcard">Delete</button>
+        <button class="btn btn-danger" @click="deleteFlashcard" style="margin: 5px">Delete</button>
         <button class="btn btn-primary" @click="openSidebar">Update</button>
       </div>
     </div>
   </div>
+  <br>
+
 </template>
 
 <script>
@@ -57,6 +59,7 @@ export default {
           // Wenn ein Fehler beim Fetchen oder bei der Verarbeitung des Requests aufgetreten ist, können Sie ihn hier behandeln
           console.error('Fehler beim Löschen der Karteikarte', error);
         });
+      location.reload();
     },
     openSidebar() {
       this.$emit('editCard', this.flashcard);
@@ -68,8 +71,9 @@ export default {
 <style scoped>
 .card {
   border: 2px solid black;
-  padding: 15px;
+  padding: 10px 15px ;
   cursor: pointer;
+  background-color: lightgray;
 }
 
 .card-title {

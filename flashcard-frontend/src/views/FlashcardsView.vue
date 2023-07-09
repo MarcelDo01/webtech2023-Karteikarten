@@ -5,12 +5,16 @@
       <div class="col scrollable-container">
         <flashcard-list :flashcards="flashcards" @cardClick="showCard"></flashcard-list>
       </div>
+      <div class="col">
+        <edit-flashcard-sidebar :flashcard="selectedCard" @updateFlashcard="updateFlashcard"></edit-flashcard-sidebar>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import FlashcardList from "@/components/FlashcardList.vue";
+import EditFlashcardSidebar from "@/components/EditFlashcardSidebar.vue"
 
 export default {
   name: 'FlashcardView',
@@ -18,11 +22,12 @@ export default {
   data() {
     return {
       flashcards: [],
-
+      selectedCard: null
     }
   },
   components: {
     FlashcardList,
+    EditFlashcardSidebar
   },
   mounted() {
     const endpoint = "http://localhost:8080/api/v1/flashcards";
@@ -36,13 +41,17 @@ export default {
   methods: {
     showCard(card) {
       this.selectedCard = card;
+    },
+    updateFlashcard(updatedFlashcard) {
+      // Implementiere hier die Logik zum Aktualisieren der Flashcard
+      // Verwende updatedFlashcard, um die aktualisierten Daten zu erhalten
     }
   }
 }
 </script>
 
 <style scoped>
-.container{
+.container {
   text-align: left;
 }
 .row {
