@@ -1,6 +1,4 @@
 <template>
-  <br>
-  <br>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="flashcard-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
       <button type="text" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -10,21 +8,21 @@
         <div class="mb-3">
           <label for="question" class="form-label">Question</label>
           <span class="input-group-text" style="margin-right: 10px;">:</span>
-          <input type="text" class="form-control" id="question" v-model="question" required>
+          <input type="text" class="form-control larger-input" id="question" v-model="question" maxlength="100" style="word-wrap: anywhere " required>
           <div class="invalid-feedback">
           </div>
         </div>
         <div class="mb-3">
           <label for="answer" class="form-label">Answer</label>
           <span class="input-group-text" style="margin-right: 21px;">:</span>
-          <input type="text" class="form-control" id="answer" v-model="answer" required>
+          <input type="text" class="form-control larger-input" id="answer" v-model="answer" maxlength="100" required>
           <div class="invalid-feedback">
           </div>
         </div>
         <div class="mb-3">
           <label for="category" class="form-label">Category</label>
           <span class="input-group-text" style="margin-right: 10px;">:</span>
-          <input type="text" class="form-control" id="answer" v-model="category" required>
+          <input type="text" class="form-control larger-input" id="answer" v-model="category" maxlength="100" required>
           <div class="invalid-feedback">
           </div>
         </div>
@@ -43,7 +41,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -115,5 +112,12 @@ export default {
 .offcanvas-header{
   display: none;
 }
-
+.larger-input {
+  height: 50px;
+  font-size: 16px;
+  width: 70%;
+}
+.mt-5 .btn-primary{
+  margin-right: 10px;
+}
 </style>

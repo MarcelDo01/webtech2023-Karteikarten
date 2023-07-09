@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 
 import FlashcardsView from "@/views/FlashcardsView.vue";
+import FlashcardCarousel from "@/views/FlashcardCarousel.vue";
 
 const routes = [
   {
@@ -19,7 +20,13 @@ const routes = [
     path: '/flashcards',
     name: 'Flashcards',
     component: FlashcardsView
+  },
+  {
+    path: '/flashcard-test',
+    name: 'Test',
+    component: FlashcardCarousel
   }
+
 
 ]
 

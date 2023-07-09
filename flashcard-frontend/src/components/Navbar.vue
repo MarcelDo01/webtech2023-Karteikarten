@@ -7,13 +7,16 @@
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-
-          <div class="About">
-            <router-link class="nav-link" to="/about" style="margin-right: 20px ;text-decoration: none">Impressium</router-link>
-          </div>
           <div class="Flashcard">
             <router-link class="nav-link" to="/flashcards" style="margin-right: 20px ;text-decoration: none">Flashcards</router-link>
           </div>
+          <div class="Flashcard-Carousel">
+            <router-link class="nav-link" to="/flashcard-test" style="margin-right: 20px; text-decoration: none">Test</router-link>
+          </div>
+          <div class="About">
+            <router-link class="nav-link" to="/about" style="margin-right: 20px ;text-decoration: none">Impressium</router-link>
+          </div>
+
         </div>
       </div>
     </div>
@@ -45,6 +48,7 @@
     font-size: 16px;
     border: none;
     border-radius: 5px;
+    margin-right: 20px;
     background: linear-gradient(#ededed, #d1d1d1);
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -68,6 +72,16 @@
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     margin-right: 20px;
+  }
+  .Flashcard-Carousel {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 20px;
+    background: linear-gradient(#ededed, #d1d1d1);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
   }
 
 </style>

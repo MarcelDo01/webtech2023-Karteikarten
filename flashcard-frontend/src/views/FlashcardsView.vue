@@ -5,12 +5,11 @@
       <div class="col-md-8 scrollable-container" >
         <flashcard-list :flashcards="flashcards" @cardClick="showCard"></flashcard-list>
       </div>
-      <div class="col-md-6 flashcard-sidebar">
-        <edit-flashcard-sidebar :flashcard="selectedCard" @updateFlashcard="updateFlashcard"></edit-flashcard-sidebar>
-      </div>
     </div>
   </div>
-  <br>
+  <div class="col-md-6 flashcard-sidebar">
+    <edit-flashcard-sidebar :flashcard="selectedCard" @updateFlashcard="updateFlashcard"></edit-flashcard-sidebar>
+  </div>
 </template>
 
 <script>
@@ -53,13 +52,13 @@ export default {
 
 <style scoped>
 .container {
-  text-align: auto;
+  text-align: left;
+  margin-right: 350px;
+
+
 }
 .row {
   margin-bottom: 100px;
-}
-.container-fluid {
-  margin-top: 20px;
 }
 
 .scrollable-container {
