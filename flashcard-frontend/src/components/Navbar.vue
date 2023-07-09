@@ -14,7 +14,7 @@
             <router-link class="nav-link" to="/flashcard-test" style="margin-right: 20px; text-decoration: none">Test</router-link>
           </div>
           <div class="About">
-            <router-link class="nav-link" to="/about" style="margin-right: 20px ;text-decoration: none">Impressium</router-link>
+            <router-link class="nav-link" to="/about" style="margin-right: 20px ;text-decoration: none">Impressum</router-link>
           </div>
 
         </div>
