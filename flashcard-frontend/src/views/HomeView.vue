@@ -1,7 +1,7 @@
 <template>
 
   <div class="home">
-    <HelloWorld msg="Welcome to FlashcardHero"/>
+    <h1>Welcome to FlashcardHero</h1>
   </div>
 
   <div class="Image">

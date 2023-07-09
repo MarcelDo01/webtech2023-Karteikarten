@@ -84,7 +84,6 @@ public class FlashcardServiceTest {
         assertEquals(request.getQuestion(), updatedFlashcard.getQuestion());
         assertEquals(request.getAnswer(), updatedFlashcard.getAnswer());
         assertEquals(request.getCategory(), updatedFlashcard.getCategory());
-
     }
 
     @Test
