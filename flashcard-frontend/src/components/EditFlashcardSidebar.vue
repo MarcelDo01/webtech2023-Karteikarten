@@ -1,4 +1,6 @@
 <template>
+  <br>
+  <br>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="flashcard-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
       <button type="text" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>

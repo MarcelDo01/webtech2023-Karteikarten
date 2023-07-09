@@ -1,10 +1,13 @@
 <template>
-  <div class="row row-cols-1 row-cols-md-4 g-4">
-    <div class="col" v-for="flashcard in flashcards" :key="flashcard.id">
-      <flashcard :flashcard="flashcard"></flashcard>
+  <div class="flashcard-container">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col-6" v-for="flashcard in flashcards" :key="flashcard.id">
+        <flashcard :flashcard="flashcard"></flashcard>
+      </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import Flashcard from "@/components/Flashcard.vue";
@@ -24,5 +27,9 @@ export default {
 </script>
 
 <style scoped>
-
+.flashcard-container {
+  max-width: 1000px; /* Hier kannst du die maximale Breite festlegen */
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>

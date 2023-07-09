@@ -1,15 +1,16 @@
 <template>
   <h1>Flashcards</h1>
   <div class="container">
-    <div class="row">
-      <div class="col scrollable-container">
+    <div class="row" style="white-space: nowrap">
+      <div class="col-md-8 scrollable-container" >
         <flashcard-list :flashcards="flashcards" @cardClick="showCard"></flashcard-list>
       </div>
-      <div class="col">
+      <div class="col-md-6 flashcard-sidebar">
         <edit-flashcard-sidebar :flashcard="selectedCard" @updateFlashcard="updateFlashcard"></edit-flashcard-sidebar>
       </div>
     </div>
   </div>
+  <br>
 </template>
 
 <script>
@@ -52,7 +53,7 @@ export default {
 
 <style scoped>
 .container {
-  text-align: left;
+  text-align: auto;
 }
 .row {
   margin-bottom: 100px;
@@ -62,7 +63,10 @@ export default {
 }
 
 .scrollable-container {
-  height: 700px;
+  height: auto;
   overflow-y: auto;
+  max-height: 50vh; /* Hier kannst du die maximale Höhe festlegen */
+  width: auto;
 }
+
 </style>
