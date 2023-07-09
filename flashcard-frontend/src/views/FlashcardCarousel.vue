@@ -5,27 +5,31 @@
       <button class="carousel-btn prev" @click="prevFlashcard">&#8249;</button>
       <div class="carousel">
         <div class="carousel-item" v-for="(flashcard, index) in visibleFlashcards" :key="index">
-          <Flashcard :flashcard="flashcard" />
+          <FlashcardTest :flashcard="flashcard" @markAsKnown="markAsKnown" @markAsUnknown="markAsUnknown" />
         </div>
       </div>
       <button class="carousel-btn next" @click="nextFlashcard">&#8250;</button>
+    </div>
+    <div v-if="quizCompleted" class="quiz-completed-msg">
+      Herzlichen Glückwunsch! Du hast alle Karteikarten gemeistert.
     </div>
   </div>
 </template>
 
 <script>
-import Flashcard from "@/components/Flashcard.vue";
+import FlashcardTest from "@/components/FlashcardTest.vue";
 
 export default {
   name: 'FlashcardCarousel',
   components: {
-    Flashcard
+    FlashcardTest
   },
   data() {
     return {
       flashcards: [], // Array mit den Karteikarten-Daten
       currentIndex: 0, // Index des aktuellen Karteikarten-Elements im Carousel
-      visibleFlashcards: [] // Array mit den aktuell sichtbaren Karteikarten
+      visibleFlashcards: [], // Array mit den aktuell sichtbaren Karteikarten
+      quizCompleted: false // Variable zur Überprüfung, ob alle Karteikarten beantwortet wurden
     };
   },
   mounted() {
@@ -59,6 +63,7 @@ export default {
         this.currentIndex = 0;
       }
       this.updateVisibleFlashcards();
+      this.checkQuizCompleted();
     },
 
     updateVisibleFlashcards() {
@@ -72,6 +77,30 @@ export default {
           ...this.flashcards.slice(startIdx),
           ...this.flashcards.slice(0, endIdx + 1)
         ];
+      }
+    },
+
+    markAsKnown(flashcard) {
+      const index = this.flashcards.findIndex(card => card.id === flashcard.id);
+      if (index !== -1) {
+        this.flashcards.splice(index, 1);
+        this.updateVisibleFlashcards();
+        this.checkQuizCompleted();
+      }
+    },
+
+    markAsUnknown(flashcard) {
+      const index = this.flashcards.findIndex(card => card.id === flashcard.id);
+      if (index !== -1) {
+        this.flashcards.splice(index, 1);
+        this.flashcards.push(flashcard);
+        this.updateVisibleFlashcards();
+      }
+    },
+
+    checkQuizCompleted() {
+      if (this.flashcards.length === 0) {
+        this.quizCompleted = true;
       }
     }
   }
@@ -120,5 +149,10 @@ export default {
 
 .carousel-btn.next {
   margin-left: 10px;
+}
+
+.quiz-completed-msg {
+  margin-top: 20px;
+  font-weight: bold;
 }
 </style>
